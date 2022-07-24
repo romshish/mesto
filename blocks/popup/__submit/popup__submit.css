@@ -6,10 +6,9 @@
   line-height: 1.2;
   color: #fff;
   background-color: #000;
-  transition: 0.1s;
   margin-top: 50px;
   opacity: 1;
-  transition: 0.3s background-color ease-in ;
+  transition: 0.3s background-color ease-in;
   cursor: pointer;
   border: 0;
 }
@@ -25,3 +24,4 @@
     font-size: 14px;
 }
 }
+
