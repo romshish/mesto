@@ -1,4 +1,4 @@
-.section_position {
+.section-position {
   max-width: 880px;
   margin: 0 auto;
   padding-left: 200px;
@@ -6,7 +6,7 @@
 }
 
 @media screen and (max-width: 1279px) {
-  .section_position {
+  .section-position {
     padding-left: 19px;
     padding-right: 19px;
   }
