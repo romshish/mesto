@@ -1,0 +1,13 @@
+.section_position {
+  max-width: 880px;
+  margin: 0 auto;
+  padding-left: 200px;
+  padding-right: 200px;
+}
+
+@media screen and (max-width: 1279px) {
+  .section_position {
+    padding-left: 19px;
+    padding-right: 19px;
+  }
+}

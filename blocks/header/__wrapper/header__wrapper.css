@@ -1,0 +1,12 @@
+.header__wrapper {
+  padding: 0 0 41px;
+  border-bottom: 1px solid #545454;
+  height: 33px;
+}
+
+@media screen and (max-width: 635px) {
+  .header__wrapper {
+    padding: 0 0 32px 0;
+    height: 24.4px;
+  }
+}

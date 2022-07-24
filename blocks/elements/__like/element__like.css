@@ -1,0 +1,19 @@
+.element__like {
+  position: absolute;
+  right: 20px;
+  bottom: 30px;
+  width: 22px;
+  height: 19px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 0;
+  border: none;
+  opacity: 1;
+  transition: 0.3s opacity ease-in;
+  cursor: pointer;
+}
+
+.element__like:hover {
+  opacity: 0.5;
+}
