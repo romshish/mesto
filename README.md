@@ -9,7 +9,7 @@ ___
 
 Планирую вернуться к этому проекту через какое-то время, наверняка, в нем есть что поправить...
 
-проект: https://romshish.github.io/russian-travel/
+проект: https://romshish.github.io/mesto/
 ___
 
 РШ
