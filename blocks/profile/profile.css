@@ -1,23 +1,15 @@
 .profile {
   color: #fff;
   padding-top: 40px;
-  display: grid;
+  display: flex;
+  justify-content: flex-start;
   align-items: center;
-  grid-template-areas:
-  'avatar name-wrapper name-wrapper button-add'
-  'avatar job job button-add';
-  grid-template-columns: min-content max-content min-content 1fr;
 }
 
 @media screen and (max-width: 635px) {
   .profile {
     padding-top: 42px;
     max-width: 282px;
-    grid-template-areas:
-    'avatar'
-    'name-wrapper'
-    'job'
-    'button-add';
-    grid-template-columns: max-content;
+    flex-direction: column;
   }
 }

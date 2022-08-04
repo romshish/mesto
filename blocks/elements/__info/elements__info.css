@@ -1,0 +1,6 @@
+.elements__info {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin: 22px 20px;
+}

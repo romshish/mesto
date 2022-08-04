@@ -10,7 +10,7 @@
   opacity: 1;
   transition: 0.3s opacity ease-in;
   cursor: pointer;
-  justify-self: end;
+  margin: 0 0 0 auto;
 }
 
 .profile__button-add:hover {

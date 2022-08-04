@@ -4,11 +4,11 @@
   font-weight: 500;
   font-size: 42px;
   line-height: 1.2;
-  max-width: 440px;
+  max-width: 294px;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  margin: 0 0 -29px 0;
+  margin: 0;
 }
 
 @media screen and (max-width: 850px) {
@@ -22,7 +22,9 @@
 @media screen and (max-width: 635px) {
   .profile__name {
     justify-self: center;
-    margin: 27px 0 0px 0;
+    margin: 28px 0 0px 0;
     max-width: 225px;
+    position: relative;
+    right: -27px;
   }
 }

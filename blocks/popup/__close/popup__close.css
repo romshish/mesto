@@ -1,16 +1,15 @@
 .popup__close {
   background: url('../../../images/button_close.svg');
-  margin: 0 0 0 0px;
+  margin: 9px -478px 387px 0;
   width: 32px;
   height: 32px;
-  border: none;
-  position: absolute;
+  position: relative;
   background-size: cover;
-  right: -39px;
-  top: -41px;
   opacity: 1;
   transition: 0.3s opacity ease-in;
   cursor: pointer;
+  border: 0;
+  padding: 0;
 }
 
 @media screen and (max-width: 550px) {
@@ -18,8 +17,8 @@
     width: 20px;
     height: 20px;
     background-size: contain;
-    right: 0px;
-    top: -36px;
+    margin: 0 -262px 374px 0px;
+    position: fixed;
   }
 }
 

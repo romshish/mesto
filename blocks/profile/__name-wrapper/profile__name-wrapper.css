@@ -1,10 +1,5 @@
 .profile__name-wrapper {
-  grid-area: name-wrapper;
-  position: relative;
-}
-
-@media screen and (max-width: 635px) {
-  .profile__name-wrapper {
-    justify-self: center;
-  }
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 5px;
 }

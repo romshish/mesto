@@ -5,20 +5,27 @@
   font-weight: 400;
   font-size: 18px;
   line-height: 1.22;
-  margin: 0 0 2px 0px;
+  align-self: flex-start;
+  margin: 0;
+  max-width: 294px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 @media screen and (max-width: 850px) {
   .profile__job {
     font-size: 14px;
     line-height: 1.21;
+    max-width: 229px;
   }
 }
 
 
 @media screen and (max-width: 635px) {
   .profile__job {
-    justify-self: center;
-    margin-top: 6px;
+    align-self: center;
+    margin-top: 2px;
+    max-width: 235px;
   }
 }

@@ -11,62 +11,75 @@
 
 <body class="page">
     <header class="header section-position">
-      <div class="header__wrapper">
-        <img class="header__logo" src="./images/Vector.svg" alt="Лого">
-      </div>
+      <img class="header__logo" src="./images/Vector.svg" alt="Лого">
     </header>
 
     <main class="content">
       <section class="profile section-position">
         <img class="profile__avatar" src="./images/avatar.jpg" alt="Фотография автора">
-        <div class="profile__name-wrapper">
-          <h1 class="profile__name">Жак-Ив Кусто</h1>
-          <button class="profile__button-edit"></button>
+        <div class="profile__info">
+          <div class="profile__name-wrapper">
+            <h1 class="profile__name">Жак-Ив Кусто</h1>
+            <button class="profile__button-edit"></button>
+          </div>
+          <p class="profile__job">Исследователь океана</p>
         </div>
-        <p class="profile__job">Исследователь океана</p>
         <button class="profile__button-add"></button>
       </section>
 
       <section class="elements section-position">
         <div class="elements__element">
           <img class="elements__image" src="./images/kirill-pershin-1088404-unsplash.jpg" alt="Древний храм в Карачаевске">
-          <h2 class="elements__title">Карачаевск</h2>
-          <button class="elements__like elements__like_active"></button>
+          <div class="elements__info">
+            <h2 class="elements__title">Карачаевск</h2>
+            <button class="elements__like elements__like_active"></button>
+          </div>
         </div>
         <div class="elements__element">
           <img class="elements__image" src="./images/kirill-pershin-1404681-unsplash.jpg" alt="Гора Эльбюраус на горизонте на фоне закатного неба">
-          <h2 class="elements__title">Гора Эльбрус</h2>
-          <button class="elements__like elements__like_disabled"></button>
+          <div class="elements__info">
+            <h2 class="elements__title">Гора Эльбрус</h2>
+            <button class="elements__like"></button>
+          </div>
         </div>
         <div class="elements__element">
           <img class="elements__image" src="./images/kirill-pershin-1556355-unsplash.jpg" alt="Вершина горы в Домбае упирается в пасмурное небо">
-          <h2 class="elements__title">Домбай</h2>
-          <button class="elements__like elements__like_disabled"></button>
+          <div class="elements__info">
+            <h2 class="elements__title">Домбай</h2>
+            <button class="elements__like"></button>
+          </div>
         </div>
         <div class="elements__element">
           <img class="elements__image" src="./images/kamchatka.jpg" alt="Одно из озер Камчатки у подножия горы в тумане">
-          <h2 class="elements__title">Камчатка</h2>
-          <button class="elements__like elements__like_disabled"></button>
+          <div class="elements__info">
+            <h2 class="elements__title">Камчатка</h2>
+            <button class="elements__like"></button>
+          </div>
         </div>
         <div class="elements__element">
           <img class="elements__image" src="./images/kizhi.jpg" alt="Храм в Кижах в солнечный весенний день">
-          <h2 class="elements__title">Кижи</h2>
-          <button class="elements__like elements__like_disabled"></button>
+          <div class="elements__info">
+            <h2 class="elements__title">Кижи</h2>
+            <button class="elements__like"></button>
+          </div>
         </div>
         <div class="elements__element">
           <img class="elements__image" src="./images/onega.jpg" alt="Сосны на берегу Онежского озера">
-          <h2 class="elements__title">Онежское озеро</h2>
-          <button class="elements__like elements__like_disabled"></button>
+          <div class="elements__info">
+            <h2 class="elements__title">Онежское озеро</h2>
+            <button class="elements__like"></button>
+          </div>
         </div>
       </section>
 
       <section class="popup">
+        <button type="button" class="popup__close"></button>
+        <div class="popup__overlay"></div>
         <form action="URL" method="get" class="popup__form">
           <h2 class="popup__title">Редактировать профиль</h2>
-          <input type="text" class="popup__name" value="Жак-Ив Кусто">
-          <input type="text" class="popup__job" value="Исследователь океана">
+          <input type="text" class="popup__input popup__input_field_name" placeholder="Жак-Ив Кусто">
+          <input type="text" class="popup__input popup__input_field_job" placeholder="Исследователь океана">
           <button class="popup__submit" type="submit">Сохранить</button>
-          <div class="popup__close"></div>
         </form>
       </section>
   </main>
@@ -74,7 +87,7 @@
     <footer class="footer section-position">
       <p class="footer__copyright">© 2020 Mesto Russia</p>
     </footer>
-    <script src="./vendor/script.js"></script>
+    <script src="./scripts/script.js"></script>
   </body>
 
 </html>
