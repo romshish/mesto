@@ -8,13 +8,13 @@ let nameProfile = document.querySelector('.profile__name');
 let jobProfile = document.querySelector('.profile__job');
 
 function openPopup() {
-  popupFeater.classList.add('popup__opened');
+  popupFeater.classList.add('popup_opened');
   nameInput.value = nameProfile.textContent;
   jobInput.value = jobProfile.textContent;
 }
 
 function closePopup() {
-  popupFeater.classList.remove('popup__opened');
+  popupFeater.classList.remove('popup_opened');
 }
 
 editButton.addEventListener('click', openPopup);
