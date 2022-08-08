@@ -9,8 +9,8 @@
   cursor: pointer;
   border: 0;
   padding: 0;
-  top: calc(100%/2 - 205px);
-  right: calc(100%/2 - 255px);
+  top: -40px;
+  right: -40px;
 }
 
 @media screen and (max-width: 550px) {
@@ -18,8 +18,8 @@
     width: 20px;
     height: 20px;
     background-size: contain;
-    top: calc(100%/2 - 197px);
-    right: calc(100%/2 - 140px);
+    top: -36px;
+    right: 0px;
   }
 }
 

@@ -24,8 +24,6 @@ function formSubmitHandler (evt) {
     evt.preventDefault();
     nameProfile.textContent = nameInput.value;
     jobProfile.textContent = jobInput.value;
-    console.log(nameInput.value);
-    console.log(jobInput.value);
     closePopup()
 }
 
