@@ -27,55 +27,26 @@
         <button type="button" class="profile__button-add"></button>
       </section>
 
-      <section class="elements page__section">
+      <section class="elements page__section" aria-label="Подборка фотографий автора">
         <ul class="elements__list">
-          <li class="element">
-            <img class="element__image" src="./images/kirill-pershin-1088404-unsplash.jpg" alt="Древний храм в Карачаевске">
-            <div class="element__info">
-              <h2 class="element__title">Карачаевск</h2>
-              <button type="button" class="element__like element__like_active"></button>
-            </div>
-          </li>
-          <li class="element">
-            <img class="element__image" src="./images/kirill-pershin-1404681-unsplash.jpg" alt="Гора Эльбюраус на горизонте на фоне закатного неба">
-            <div class="element__info">
-              <h2 class="element__title">Гора Эльбрус</h2>
-              <button type="button" class="element__like"></button>
-            </div>
-          </li>
-          <li class="element">
-            <img class="element__image" src="./images/kirill-pershin-1556355-unsplash.jpg" alt="Вершина горы в Домбае упирается в пасмурное небо">
-            <div class="element__info">
-              <h2 class="element__title">Домбай</h2>
-              <button type="button" class="element__like"></button>
-            </div>
-          </li>
-          <li class="element">
-            <img class="element__image" src="./images/kamchatka.jpg" alt="Одно из озер Камчатки у подножия горы в тумане">
-              <div class="element__info">
-              <h2 class="element__title">Камчатка</h2>
-              <button type="button" class="element__like"></button>
-            </div>
-          </li>
-          <li class="element">
-            <img class="element__image" src="./images/kizhi.jpg" alt="Храм в Кижах в солнечный весенний день">
-            <div class="element__info">
-              <h2 class="element__title">Кижи</h2>
-              <button type="button" class="element__like"></button>
-            </div>
-          </li>
-          <li class="element">
-            <img class="element__image" src="./images/onega.jpg" alt="Сосны на берегу Онежского озера">
-            <div class="element__info">
-              <h2 class="element__title">Онежское озеро</h2>
-              <button type="button" class="element__like"></button>
-            </div>
-          </li>
+
         </ul>
       </section>
+
+      <template id="card-template">
+        <li class="element">
+          <img class="element__image" src="" alt="">
+          <button type="button" class="element__trash"></button>
+          <div class="element__info">
+            <h2 class="element__title"></h2>
+            <button type="button" class="element__like"></button>
+          </div>
+        </li>
+      </template>
+
   </main>
 
-  <section class="popup">
+  <section id="popup-feater" class="popup">
     <div class="popup__wraper">
       <h2 class="popup__title">Редактировать профиль</h2>
       <button type="button" class="popup__close"></button>
@@ -87,8 +58,28 @@
     </div>
   </section>
 
+  <section id="popup-card" class="popup">
+    <div class="popup__wraper">
+      <h2 class="popup__title">Новое место</h2>
+      <button type="button" class="popup__close"></button>
+      <form name="popup" class="popup__form">
+        <input type="text" name="title" class="popup__input popup__input_field_placename" placeholder="Название">
+        <input type="text" name="link" class="popup__input popup__input_field_link" placeholder="Ссылка на картинку">
+        <button class="popup__submit" type="submit">Создать</button>
+      </form>
+    </div>
+  </section>
+
+  <section id="popup-image" class="popup-image">
+    <div class="popup-image__wraper">
+      <button type="button" class="popup-image__close"></button>
+      <img class="popup-image__image" src="#" alt="Фотография автора">
+      <h2 class="popup-image__title">Новое место</h2>
+    </div>
+  </section>
+
     <footer class="footer page__section">
-      <p class="footer__copyright">© 2020 Mesto Russia</p>
+      <p class="footer__copyright">© 2022 Mesto Russia</p>
     </footer>
     <script src="./scripts/script.js"></script>
   </body>
