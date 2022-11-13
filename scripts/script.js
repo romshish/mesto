@@ -25,11 +25,44 @@ const picturePopup = popupImage.querySelector('.popup__image');
 const cardTemplate = document.querySelector('#card-template').content;
 
 function openPopup(popup) {
+  enableValidation({
+    formSelector: '.popup__form',
+    inputSelector: '.popup__input',
+    submitButtonSelector: '.popup__submit',
+    inactiveButtonClass: 'popup__submit_inactive',
+    inputErrorClass: 'popup__input_type_error',
+    errorClass: 'popup__input-error_active'
+  });
   popup.classList.add('popup_opened');
+  popup.addEventListener('click', closePopupClickBack)
+  document.addEventListener('keydown', closePopupWithEsc)
 }
 
-function closePopup(popup) {
-  popup.classList.remove('popup_opened');
+const closePopupClickBack = function(evt) {
+  if (evt.target.classList[2] === 'popup_opened') {
+    closePopup(evt.target);
+  }
+};
+
+const closePopupWithEsc = function(evt) {
+  if (evt.key === 'Escape') {
+    const activePopup = evt.currentTarget.querySelector('.popup_opened');
+    closePopup(activePopup);
+  }
+};
+
+ function closePopup(popup) {
+  popup.classList.remove('popup_opened')
+  popup.removeEventListener('click', closePopupClickBack)
+  document.removeEventListener('keydown', closePopupWithEsc);
+  enableValidation({
+    formSelector: '.popup__form',
+    inputSelector: '.popup__input',
+    submitButtonSelector: '.popup__submit',
+    inactiveButtonClass: 'popup__submit_inactive',
+    inputErrorClass: 'popup__input_type_error',
+    errorClass: 'popup__input-error_active'
+  });
 }
 
 profileEditeButton.addEventListener('click', function() {

@@ -31,3 +31,7 @@
     margin: 0px 0px 7px 36px;
   }
 }
+
+.profile__button-edit:focus {
+  outline: none;
+}

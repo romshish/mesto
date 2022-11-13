@@ -28,8 +28,13 @@
 @import url('../blocks/popup/__wraper/popup__wraper.css');
 @import url('../blocks/popup/__form/popup__form.css');
 @import url('../blocks/popup/__title/popup__title.css');
+@import url('../blocks/popup/__input-field/popup__input-field.css');
 @import url('../blocks/popup/__input/popup__input.css');
+@import url('../blocks/popup/__input/_type_error/popup__input_type_error.css');
+@import url('../blocks/popup/__input-error/popup__input-error.css');
+@import url('../blocks/popup/__input-error/_active/popup__input-error_active.css');
 @import url('../blocks/popup/__submit/popup__submit.css');
+@import url('../blocks/popup/__submit/_inactive/popup__submit_inactive.css');
 @import url('../blocks/popup/__close/popup__close.css');
 @import url('../blocks/popup/_purpose_image/popup_purpose_image.css');
 @import url('../blocks/popup/__wraper/popup__wraper.css');
