@@ -1,7 +1,7 @@
 .popup__input-error {
   color: red;
   position: absolute;
-  top: 65px;
+  top: 61px;
   visibility: hidden;
   font-family: inter;
   font-size: 12px;

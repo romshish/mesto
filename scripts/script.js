@@ -25,28 +25,36 @@ const picturePopup = popupImage.querySelector('.popup__image');
 const cardTemplate = document.querySelector('#card-template').content;
 
 function openPopup(popup) {
-  enableValidation({
-    formSelector: '.popup__form',
-    inputSelector: '.popup__input',
-    submitButtonSelector: '.popup__submit',
-    inactiveButtonClass: 'popup__submit_inactive',
-    inputErrorClass: 'popup__input_type_error',
-    errorClass: 'popup__input-error_active'
-  });
+  console.log(popup.querySelector('form'));
   popup.classList.add('popup_opened');
-  popup.addEventListener('click', closePopupClickBack)
-  document.addEventListener('keydown', closePopupWithEsc)
+  popup.addEventListener('click', closePopupClickBack);
+  document.addEventListener('keydown', closePopupWithEsc);
+  if (popup.querySelector('form')) {
+    toggleButtonStateOpen(validationSettings, popup);
+  }
 }
 
+function toggleButtonStateOpen(validationSettings, popup) {
+      const inputList = Array.from(popup.querySelectorAll(`${validationSettings.inputSelector}`));
+      const buttonSubmit = popup.querySelector(`${validationSettings.submitButtonSelector}`);
+      if (validateAllInputs(inputList)) {
+        buttonSubmit.classList.add(`${validationSettings.inactiveButtonClass}`);
+        buttonSubmit.setAttribute('disabled', 'disabled');
+      } else {
+        buttonSubmit.classList.remove(`${validationSettings.inactiveButtonClass}`);
+        buttonSubmit.removeAttribute('disabled');
+      }
+   }
+
 const closePopupClickBack = function(evt) {
-  if (evt.target.classList[2] === 'popup_opened') {
+  if (evt.target.classList.contains('popup_opened')) {
     closePopup(evt.target);
   }
 };
 
 const closePopupWithEsc = function(evt) {
   if (evt.key === 'Escape') {
-    const activePopup = evt.currentTarget.querySelector('.popup_opened');
+    const activePopup = document.querySelector('.popup_opened');
     closePopup(activePopup);
   }
 };
@@ -55,14 +63,6 @@ const closePopupWithEsc = function(evt) {
   popup.classList.remove('popup_opened')
   popup.removeEventListener('click', closePopupClickBack)
   document.removeEventListener('keydown', closePopupWithEsc);
-  enableValidation({
-    formSelector: '.popup__form',
-    inputSelector: '.popup__input',
-    submitButtonSelector: '.popup__submit',
-    inactiveButtonClass: 'popup__submit_inactive',
-    inputErrorClass: 'popup__input_type_error',
-    errorClass: 'popup__input-error_active'
-  });
 }
 
 profileEditeButton.addEventListener('click', function() {

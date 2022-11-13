@@ -1,3 +1,12 @@
+validationSettings = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__submit',
+  inactiveButtonClass: 'popup__submit_inactive',
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: 'popup__input-error_active'
+};
+
 function enableValidation(settings) {
   const formList = Array.from(document.querySelectorAll(`${settings.formSelector}`));
   formList.forEach(function(formElement) {
@@ -47,16 +56,11 @@ function validateAllInputs(inputList) {
 function toggleButtonSubmit(settings, inputList, buttonSubmit) {
   if (validateAllInputs(inputList)) {
     buttonSubmit.classList.add(`${settings.inactiveButtonClass}`);
+    buttonSubmit.setAttribute('disabled', 'disabled');
   } else {
     buttonSubmit.classList.remove(`${settings.inactiveButtonClass}`);
+    buttonSubmit.removeAttribute('disabled');
   }
 }
 
-enableValidation({
-  formSelector: '.popup__form',
-  inputSelector: '.popup__input',
-  submitButtonSelector: '.popup__submit',
-  inactiveButtonClass: 'popup__submit_inactive',
-  inputErrorClass: 'popup__input_type_error',
-  errorClass: 'popup__input-error_active'
-});
+enableValidation(validationSettings);
