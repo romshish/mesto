@@ -25,7 +25,6 @@ const picturePopup = popupImage.querySelector('.popup__image');
 const cardTemplate = document.querySelector('#card-template').content;
 
 function openPopup(popup) {
-  console.log(popup.querySelector('form'));
   popup.classList.add('popup_opened');
   popup.addEventListener('click', closePopupClickBack);
   document.addEventListener('keydown', closePopupWithEsc);
