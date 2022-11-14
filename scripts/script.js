@@ -12,6 +12,7 @@ const popupAddingCard = document.querySelector('.popup_purpose_card');
 const сardСloseButton = popupAddingCard.querySelector('.popup__close');
 const formCardElement = popupAddingCard.querySelector('.popup__form');
 const placeNameCardInput = popupAddingCard.querySelector('.popup__input_field_placename');
+const placeNameCardSubmit = popupAddingCard.querySelector('.popup__submit');
 const placeLinkInput = popupAddingCard.querySelector('.popup__input_field_link');
 const cardsContainer = document.querySelector('.elements__list');
 const cardTitul = document.querySelector('.popup__input_field_placename');
@@ -28,22 +29,7 @@ function openPopup(popup) {
   popup.classList.add('popup_opened');
   popup.addEventListener('click', closePopupClickBack);
   document.addEventListener('keydown', closePopupWithEsc);
-  if (popup.querySelector('form')) {
-    toggleButtonStateOpen(validationSettings, popup);
-  }
 }
-
-function toggleButtonStateOpen(validationSettings, popup) {
-      const inputList = Array.from(popup.querySelectorAll(`${validationSettings.inputSelector}`));
-      const buttonSubmit = popup.querySelector(`${validationSettings.submitButtonSelector}`);
-      if (validateAllInputs(inputList)) {
-        buttonSubmit.classList.add(`${validationSettings.inactiveButtonClass}`);
-        buttonSubmit.setAttribute('disabled', 'disabled');
-      } else {
-        buttonSubmit.classList.remove(`${validationSettings.inactiveButtonClass}`);
-        buttonSubmit.removeAttribute('disabled');
-      }
-   }
 
 const closePopupClickBack = function(evt) {
   if (evt.target.classList.contains('popup_opened')) {
@@ -128,6 +114,8 @@ function submitFormCardHandler (evt) {
   renderCard(cardTitul.value, cardLink.value);
   formCardElement.reset();
   closePopup(popupAddingCard);
+  placeNameCardSubmit.classList.add(`${validationSettings.inactiveButtonClass}`);
+  placeNameCardSubmit.setAttribute('disabled', 'disabled');
 }
 
 formProfileElement.addEventListener('submit', submitFormHandler);
