@@ -17,7 +17,7 @@ export default class FormValidator {
     this._cautionInput.textContent = this._inputElement.validationMessage;
   }
 
-  _hideInputError() {
+  hideInputError() {
     this._inputElement.classList.remove(this._inputErrorClass);
     this._cautionInput = this._formElement.querySelector(`.${this._inputElement.id}-error`);
     this._cautionInput.classList.remove(this._errorClass);
@@ -27,7 +27,7 @@ export default class FormValidator {
     if (!this._inputElement.validity.valid) {
       this._showInputError()
     } else {
-      this._hideInputError()
+      this.hideInputError()
     }
   }
 
@@ -47,14 +47,19 @@ export default class FormValidator {
     }
   }
 
+  disableSubmitButton() {
+    this._buttonSubmit.classList.add(this._inactiveButtonClass);
+    this._buttonSubmit.setAttribute('disabled', 'disabled');
+  }
+
   enableValidation() {
     this._inputList.forEach((inputElement) => {
-    this._inputElement = inputElement;
-    this._toggleButtonSubmit();
-    this._inputElement.addEventListener('input', (evt) => {
-      this._inputElement = evt.target;
-      this._validateInput();
+      this._inputElement = inputElement;
       this._toggleButtonSubmit();
+      this._inputElement.addEventListener('input', (evt) => {
+        this._inputElement = evt.target;
+        this._validateInput();
+        this._toggleButtonSubmit();
       });
     });
   }
