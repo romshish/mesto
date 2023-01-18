@@ -13,7 +13,10 @@ import {
   initialCards,
   validationSettings,
   nameProfileSelector,
-  jobProfileSelector } from '../utils/constants.js';
+  jobProfileSelector,
+  nameProfileInput,
+  jobProfileInput
+ } from '../utils/constants.js';
 
 const renderCards = (data) => {
   const cardAuthor = new Section ({
@@ -51,6 +54,10 @@ const popupProfileEdite = new PopupWithForm({
 popupProfileEdite.setEventListeners();
 
 profileEditeButton.addEventListener('click', () => {
+  const userInfo = new UserInfo(nameProfileSelector, jobProfileSelector);
+  const infoDefault = userInfo.getUserInfo();
+  nameProfileInput.value = infoDefault.name;
+  jobProfileInput.value = infoDefault.job;
   popupProfileEdite.open();
 });
 

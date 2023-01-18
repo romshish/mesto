@@ -42,3 +42,5 @@ export const jobProfileSelector = '.profile__job';
 export const cardListSelector = '.elements__list';
 export const formElementAutor = document.querySelector('#form-autor')
 export const formElementPlace = document.querySelector('#form-place')
+export const nameProfileInput = document.querySelector('.popup__input_field_name');
+export const jobProfileInput = document.querySelector('.popup__input_field_job');
