@@ -4,19 +4,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./pages/index.css">
   <title>Место</title>
 </head>
 
 
 <body class="page">
     <header class="header page__section">
-      <img class="header__logo" src="./images/Vector.svg" alt="Лого">
+      <img class="header__logo" src="<%=require('./images/Vector.svg')%>" alt="Лого">
     </header>
 
     <main class="content">
       <section class="profile page__section">
-        <img class="profile__avatar" src="./images/avatar.jpg" alt="Фотография автора">
+        <img class="profile__avatar" src="<%=require('./images/avatar.jpg')%>" alt="Фотография автора">
         <div class="profile__info">
           <div class="profile__name-wrapper">
             <h1 class="profile__name">Жак-Ив Кусто</h1>
@@ -93,7 +92,6 @@
     <footer class="footer page__section">
       <p class="footer__copyright">© 2022 Mesto Russia</p>
     </footer>
-    <script type="module" src="./pages/index.js"></script>
-</body>
+  </body>
 
 </html>
