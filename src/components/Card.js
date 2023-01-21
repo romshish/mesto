@@ -16,7 +16,7 @@ export default class Card {
     return cardElement;
   }
 
-  _delClickHandler = () => {
+  _deleteCard = () => {
     this._card.remove();
   }
 
@@ -36,7 +36,7 @@ export default class Card {
   }
 
   _setEventListeners() {
-    this._card.querySelector('.element__trash').addEventListener('click', this._delClickHandler);
+    this._card.querySelector('.element__trash').addEventListener('click', this._deleteCard);
     this._image.addEventListener('click', this._handleCardClick);
     this._like.addEventListener('click', this._handleLikeButton);
   }
