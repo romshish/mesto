@@ -13,29 +13,18 @@ import {
   validationSettings,
   nameProfileSelector,
   jobProfileSelector,
-  nameProfileInput,
-  jobProfileInput,
   profileForm,
   cardForm
- } from '../utils/constants.js';
+} from '../utils/constants.js';
 
 function createCard(item) {
-  const card = new Card (item.name, item.link, '#card-template', handleCardClick);
+  const card = new Card(item.name, item.link, '#card-template', handleCardClick);
   const cardElement = card.generateCard();
   return cardElement
 }
 
-function renderCards(cardList, containerSelector) {
-  cardList.forEach(item => {
-    const cardItem = createCard(item);
-    document.querySelector(containerSelector).append(cardItem);
-  })
-}
-
-renderCards(initialCards, cardListSelector);
-
-const section = new Section ({
-  items: [],
+const section = new Section({
+  items: initialCards.reverse(),
   renderer: (item) => {
     const cardElement = createCard(item);
     section.addItem(cardElement);
@@ -47,7 +36,7 @@ section.renderItems();
 const popupAdditionCard = new PopupWithForm({
   popupSelector: '.popup_purpose_card',
   handleFormSubmit: (formData) => {
-    const cardElement = createCard({name: formData.title, link: formData.link});
+    const cardElement = createCard({ name: formData.title, link: formData.link });
     section.addItem(cardElement);
   },
 })
@@ -59,7 +48,7 @@ addingCardButton.addEventListener('click', () => {
   formValidators[cardForm.getAttribute('name')].resetValidation();
 });
 
-const popupWithImage = new PopupWithImage ('.popup_purpose_image');
+const popupWithImage = new PopupWithImage('.popup_purpose_image');
 popupWithImage.setEventListeners();
 
 
