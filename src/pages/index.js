@@ -118,7 +118,6 @@ const popupProfileEdite = new PopupWithForm({
     popupProfileEdite.renderLoading(true);
     api.updateProfile({ name: formData.name, about: formData.job })
       .then((result) => {
-        console.log(result);
         userInfo.setUserInfo(result);
       })
       .catch((err) => {
@@ -186,7 +185,7 @@ const popupUpdateAvatar = new PopupWithForm({
   popupSelector: '.popup_purpose_update-avatar',
   handleFormSubmit: (formData) => {
     popupUpdateAvatar.renderLoading(true);
-    api.updateProfileAvatar({ avatar: formData.link })
+    api.updateProfileAvatar({ avatar: formData.avatar })
     .then((result) => {
       userInfo.setUserAvatar({ avatar: result.avatar });
       avatarImage.src = userInfo.setAvatar();
