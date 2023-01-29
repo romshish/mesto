@@ -7,37 +7,14 @@ export const validationSettings = {
   errorClass: 'popup__input-error_active'
 };
 
-export const initialCards = [
-  {
-    name: 'Архыз',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-  },
-  {
-    name: 'Челябинская область',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-  },
-  {
-    name: 'Иваново',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-  },
-  {
-    name: 'Камчатка',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-  },
-  {
-    name: 'Холмогорский район',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-  },
-  {
-    name: 'Байкал',
-    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-  }
-];
-
 export const profileEditeButton = document.querySelector('.profile__button-edit');
 export const addingCardButton = document.querySelector('.profile__button-add');
+export const avatarImage = document.querySelector('.profile__avatar');
+export const avatarUpdate = document.querySelector('.profile__wrapper')
 export const nameProfileSelector = '.profile__name';
 export const jobProfileSelector = '.profile__job';
 export const cardListSelector = '.elements__list';
-export const profileForm = document.forms["profile-form"];
-export const cardForm = document.forms["card-form"];
+export const avatarSelector = '.profile__avatar';
+export const profileForm = document.forms['profile-form'];
+export const cardForm = document.forms['card-form'];
+export const avatarForm = document.forms['update-avatar-form']

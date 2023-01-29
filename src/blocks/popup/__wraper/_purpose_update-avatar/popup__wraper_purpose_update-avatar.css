@@ -1,0 +1,18 @@
+.popup__wraper_purpose_update-avatar {
+  background-color: #fff;
+  max-width: 430px;
+  width: 100%;
+  min-height: 272px;
+  border-radius: 10px;
+  opacity: 100%;
+  padding: 0 36px 0;
+  z-index: 1;
+}
+
+@media screen and (max-width: 550px) {
+  .popup__wraper_purpose_update-avatar{
+    max-width: 282px;
+    min-height: 322px;
+    padding: 0 22px 0;
+}
+}

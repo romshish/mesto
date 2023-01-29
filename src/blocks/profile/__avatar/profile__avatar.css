@@ -5,6 +5,9 @@
   width: 120px;
   height: 120px;
   margin-right: 30px;
+  cursor: pointer;
+  position: relative;
+
 }
 
 @media screen and (max-width: 635px) {
