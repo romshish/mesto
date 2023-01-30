@@ -9,7 +9,8 @@ export default class Card {
     this._handleLikeButton = handleLikeButton;
     this._handleIconRemoveSubmit = handleIconRemoveSubmit;
     this._ownerId = data.owner._id;
-    this._userId = '73e8ceaa414fefc1552d78e3';
+    this._userId = userId;
+    this._cardId = data._id;
   }
 
   _getCard() {
@@ -49,7 +50,7 @@ export default class Card {
     this._setEventListeners();
     this.countCardLikes(this._likes);
     this._removeTrashButton();
-    if (this._isLiked()) {
+    if (this.isLiked()) {
       this.addLike();
     };
     return this._card;
@@ -59,7 +60,7 @@ export default class Card {
     this._numberLikes.textContent = likes.length;
   }
 
-  _isLiked() {
+  isLiked() {
     return Boolean(this._likes.find(item => item._id === this._userId));
   }
 

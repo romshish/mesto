@@ -11,8 +11,8 @@ export default class Api {
     })
       .then((res) => {
         return this._checkState(res)
-      }
-  )};
+    })
+  };
 
   getCardsFromApi() {
     return fetch(`${this._url}cards`, {
@@ -21,8 +21,8 @@ export default class Api {
     })
       .then((res) => {
         return this._checkState(res)
-      }
-  )};
+    })
+  };
 
   getAllNeededData() {
     return Promise.all([this.getUserInfo(), this.getCardsFromApi()])
@@ -36,8 +36,8 @@ export default class Api {
     })
       .then((res) => {
         return this._checkState(res)
-      }
-  )};
+    })
+  };
 
   addCards(data) {
     return fetch(`${this._url}cards`, {
@@ -47,8 +47,8 @@ export default class Api {
     })
       .then((res) => {
         return this._checkState(res)
-      }
-  )};
+    })
+  };
 
   deleteCard(cardId) {
     return fetch(`${this._url}cards/${cardId}`, {
@@ -57,8 +57,8 @@ export default class Api {
     })
       .then((res) => {
         return this._checkState(res)
-      }
-  )};
+    })
+  };
 
   addLikeCard(cardId) {
     return fetch(`${this._url}cards/${cardId}/likes`, {
@@ -67,8 +67,8 @@ export default class Api {
     })
       .then((res) => {
         return this._checkState(res)
-      }
-  )};
+    })
+  };
 
   deleteLikeCard(cardId) {
     return fetch(`${this._url}cards/${cardId}/likes`, {
@@ -77,8 +77,8 @@ export default class Api {
     })
       .then((res) => {
         return this._checkState(res)
-      }
-  )};
+    })
+  };
 
   updateProfileAvatar(data) {
     return fetch(`${this._url}users/me/avatar`, {
@@ -88,14 +88,15 @@ export default class Api {
     })
       .then((res) => {
         return this._checkState(res)
-      }
-  )};
+    })
+  };
 
   _checkState(result) {
     if (result.ok) {
       return result.json();
     }
-  };
+    return Promise.reject(`Ошибка ${res.status}`);
+  }
 }
 
 

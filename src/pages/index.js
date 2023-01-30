@@ -24,7 +24,7 @@ import {
 } from '../utils/constants.js';
 
 
-// вызов классов Section UserInfo Api объявление функции создания карточек(createCard)
+let userId;
 
 const api = new Api({
   url: 'https://mesto.nomoreparties.co/v1/cohort-57/',
@@ -36,9 +36,25 @@ const api = new Api({
 
 const userInfo = new UserInfo(nameProfileSelector, jobProfileSelector, avatarSelector);
 
+
+// получаем данные о карточках и пользователе
+
+api.getAllNeededData()
+  .then((result) => {
+    const [userData, initialCards] = result;
+    userInfo.setUserInfo(userData);
+    avatarImage.src = userInfo.avatarDefault;
+    userId = userData._id;
+    section.renderItems(initialCards.reverse());
+  })
+  .catch((err) => {
+    console.log(`Произошла ошибка ${err}`);
+  });
+
+
 const section = new Section({
-  renderer: (item, userId) => {
-    const cardElement = createCard(item, userId);
+  renderer: (item) => {
+    const cardElement = createCard(item);
     section.addItem(cardElement);
   }
 }, cardListSelector);
@@ -46,34 +62,33 @@ const section = new Section({
 const popupWithConfirm = new PopupWithConfirm('.popup_purpose_confirm', api)
 popupWithConfirm.setEventListeners();
 
-function createCard(data, userId) {
-  const card = new Card(data, userId, api, '#card-template', handleCardClick,
-  {
+function createCard(data) {
+  const card = new Card(data, userId, api, '#card-template', handleCardClick, {
     handleIconRemoveSubmit: (data) => {
-    popupWithConfirm.open();
-    popupWithConfirm.setSubmitAction(() => {
-      api.deleteCard(data._id)
-        .then(() => {
-          card._deleteCard();
-          popupWithConfirm.close();
-        })
-        .catch((err) => {
-          console.log(`Произошла ошибка ${err}`);
-        });
+      popupWithConfirm.open();
+      popupWithConfirm.setSubmitAction(() => {
+        api.deleteCard(data._id)
+          .then(() => {
+            card._deleteCard();
+            popupWithConfirm.close();
+          })
+          .catch((err) => {
+            console.log(`Произошла ошибка ${err}`);
+          });
       })
     },
 
     handleLikeButton: (data) => {
-      if(card._isLiked()) {
+      if (card.isLiked()) {
         api.deleteLikeCard(data._id)
-        .then((res) => {
-          card.removeLike();
-          card.countCardLikes(res.likes);
-          card.updateStateLike(res.likes)
-        })
-        .catch((err) => {
-          console.log(`Произошла ошибка ${err}`);
-        });
+          .then((res) => {
+            card.removeLike();
+            card.countCardLikes(res.likes);
+            card.updateStateLike(res.likes)
+          })
+          .catch((err) => {
+            console.log(`Произошла ошибка ${err}`);
+          });
       } else {
         api.addLikeCard(data._id)
           .then((res) => {
@@ -86,28 +101,13 @@ function createCard(data, userId) {
           });
       };
     }
-  }  );
+  });
   const cardElement = card.generateCard();
   return cardElement
 }
 
-// получаем данные о карточках и пользователе
 
-api.getAllNeededData()
-  .then((result) => {
-    const [userData, initialCardsData] = result;
-    userInfo.setUserInfo(userData);
-    userInfo.setUserAvatar(userData);
-    avatarImage.src = userInfo.setAvatar();
-    const userId = userInfo.getUserId(userData);
-    const initialCards = initialCardsData.map((item) => {
-      return item;
-    })
-    section.renderItems(initialCards.reverse(), userId);
-  })
-  .catch((err) => {
-    console.log(`Произошла ошибка ${err}`);
-  });
+
 
 
 // 3. Редактирование профиля
@@ -119,6 +119,7 @@ const popupProfileEdite = new PopupWithForm({
     api.updateProfile({ name: formData.name, about: formData.job })
       .then((result) => {
         userInfo.setUserInfo(result);
+        popupProfileEdite.close();
       })
       .catch((err) => {
         console.log(`Произошла ошибка ${err}`);
@@ -146,16 +147,17 @@ const popupAdditionCard = new PopupWithForm({
   handleFormSubmit: (formData) => {
     popupAdditionCard.renderLoading(true);
     api.addCards({ name: formData.title, link: formData.link })
-    .then((result) => {
-      const cardElement = createCard(result);
-      section.addItem(cardElement);
-    })
-    .catch((err) => {
-      console.log(`Произошла ошибка ${err}`);
-    })
-    .finally(() => {
-      popupAdditionCard.renderLoading(false);
-    });
+      .then((result) => {
+        const cardElement = createCard(result);
+        section.addItem(cardElement);
+        popupAdditionCard.close();
+      })
+      .catch((err) => {
+        console.log(`Произошла ошибка ${err}`);
+      })
+      .finally(() => {
+        popupAdditionCard.renderLoading(false);
+      });
   },
 })
 
@@ -186,16 +188,17 @@ const popupUpdateAvatar = new PopupWithForm({
   handleFormSubmit: (formData) => {
     popupUpdateAvatar.renderLoading(true);
     api.updateProfileAvatar({ avatar: formData.avatar })
-    .then((result) => {
-      userInfo.setUserAvatar({ avatar: result.avatar });
-      avatarImage.src = userInfo.setAvatar();
-    })
-    .catch((err) => {
-      console.log(`Произошла ошибка ${err}`);
-    })
-    .finally(() => {
-    popupUpdateAvatar.renderLoading(false);
-    })
+      .then((result) => {
+        userInfo.setUserInfo(result);
+        avatarImage.src = userInfo.avatarDefault;
+        popupUpdateAvatar.close();
+      })
+      .catch((err) => {
+        console.log(`Произошла ошибка ${err}`);
+      })
+      .finally(() => {
+        popupUpdateAvatar.renderLoading(false);
+      })
   },
 })
 
