@@ -23,7 +23,7 @@ export default class Card {
     return cardElement;
   }
 
-  _deleteCard = () => {
+  deleteCard = () => {
     this._card.remove();
   }
 

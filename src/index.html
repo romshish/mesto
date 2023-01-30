@@ -9,44 +9,44 @@
 
 
 <body class="page">
-    <header class="header page__section">
-      <img class="header__logo" src="<%=require('./images/Vector.svg')%>" alt="Лого">
-    </header>
+  <header class="header page__section">
+    <img class="header__logo" src="<%=require('./images/Vector.svg')%>" alt="Лого">
+  </header>
 
-    <main class="content">
-      <section class="profile page__section">
-        <div class="profile__wrapper">
-          <img class="profile__avatar" src="#" alt="Фотография автора">
+  <main class="content">
+    <section class="profile page__section">
+      <div class="profile__wrapper">
+        <img class="profile__avatar" src="#" alt="Фотография автора">
+      </div>
+      <div class="profile__info">
+        <div class="profile__name-wrapper">
+          <h1 class="profile__name"></h1>
+          <button type="button" class="profile__button-edit"></button>
         </div>
-        <div class="profile__info">
-          <div class="profile__name-wrapper">
-            <h1 class="profile__name"></h1>
-            <button type="button" class="profile__button-edit"></button>
+        <p class="profile__job"></p>
+      </div>
+      <button type="button" class="profile__button-add"></button>
+    </section>
+
+    <section class="elements page__section" aria-label="Подборка фотографий автора">
+      <ul class="elements__list">
+
+      </ul>
+    </section>
+
+    <template id="card-template">
+      <li class="element">
+        <img class="element__image" src="#" alt="">
+        <button type="button" class="element__trash"></button>
+        <div class="element__info">
+          <h2 class="element__title"></h2>
+          <div class="element__title-wrapper">
+            <button type="button" class="element__like"></button>
+            <p class="element__sum-likes">0</p>
           </div>
-          <p class="profile__job"></p>
         </div>
-        <button type="button" class="profile__button-add"></button>
-      </section>
-
-      <section class="elements page__section" aria-label="Подборка фотографий автора">
-        <ul class="elements__list">
-
-        </ul>
-      </section>
-
-      <template id="card-template">
-        <li class="element">
-          <img class="element__image" src="#" alt="">
-          <button type="button" class="element__trash"></button>
-          <div class="element__info">
-            <h2 class="element__title"></h2>
-            <div class="element__title-wrapper">
-              <button type="button" class="element__like"></button>
-              <p class="element__sum-likes">0</p>
-            </div>
-          </div>
-        </li>
-      </template>
+      </li>
+    </template>
 
   </main>
 
@@ -56,11 +56,13 @@
       <button type="button" class="popup__close"></button>
       <form name="profile-form" class="popup__form" novalidate>
         <label class="popup__input-field">
-          <input type="text" name="name" class="popup__input popup__input_field_name popup__input" id="name-input" placeholder="Имя" minlength="2" maxlength="40" required>
+          <input type="text" name="name" class="popup__input popup__input_field_name popup__input" id="name-input"
+            placeholder="Имя" minlength="2" maxlength="40" required>
           <span class="popup__input-error name-input-error"></span>
         </label>
         <label class="popup__input-field">
-          <input type="text" name="job" class="popup__input popup__input_field_job" id="job-input" placeholder="О себе" minlength="2" maxlength="200" required>
+          <input type="text" name="job" class="popup__input popup__input_field_job" id="job-input" placeholder="О себе"
+            minlength="2" maxlength="200" required>
           <span class="popup__input-error job-input-error"></span>
         </label>
         <button class="popup__submit" type="submit">Сохранить</button>
@@ -74,7 +76,8 @@
       <button type="button" class="popup__close"></button>
       <form name="update-avatar-form" class="popup__form" novalidate>
         <label class="popup__input-field">
-          <input type="url" name="avatar" class="popup__input popup__input_field_link" id="link-avatar" placeholder="Ссылка на аватар" required>
+          <input type="url" name="avatar" class="popup__input popup__input_field_link" id="link-avatar"
+            placeholder="Ссылка на аватар" required>
           <span class="popup__input-error link-avatar-error"></span>
         </label>
         <button class="popup__submit" type="submit">Сохранить</button>
@@ -88,11 +91,13 @@
       <button type="button" class="popup__close"></button>
       <form name="card-form" class="popup__form" novalidate>
         <label class="popup__input-field">
-          <input type="text" name="title" class="popup__input popup__input_field_placename" id="placename-input" placeholder="Название" minlength="2" maxlength="30" required>
+          <input type="text" name="title" class="popup__input popup__input_field_placename" id="placename-input"
+            placeholder="Название" minlength="2" maxlength="30" required>
           <span class="popup__input-error placename-input-error"></span>
         </label>
         <label class="popup__input-field">
-          <input type="url" name="link" class="popup__input popup__input_field_link" id="link-input" placeholder="Ссылка на картинку" required>
+          <input type="url" name="link" class="popup__input popup__input_field_link" id="link-input"
+            placeholder="Ссылка на картинку" required>
           <span class="popup__input-error link-input-error"></span>
         </label>
         <button class="popup__submit" type="submit">Создать</button>
@@ -118,9 +123,9 @@
     </div>
   </section>
 
-    <footer class="footer page__section">
-      <p class="footer__copyright">© 2022 Mesto Russia</p>
-    </footer>
-  </body>
+  <footer class="footer page__section">
+    <p class="footer__copyright">© 2022 Mesto Russia</p>
+  </footer>
+</body>
 
 </html>

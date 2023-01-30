@@ -16,7 +16,6 @@ import {
   jobProfileSelector,
   profileForm,
   cardForm,
-  avatarImage,
   avatarUpdate,
   avatarSelector,
   avatarForm
@@ -43,7 +42,6 @@ api.getAllNeededData()
   .then((result) => {
     const [userData, initialCards] = result;
     userInfo.setUserInfo(userData);
-    avatarImage.src = userInfo.avatarDefault;
     userId = userData._id;
     section.renderItems(initialCards.reverse());
   })
@@ -69,7 +67,7 @@ function createCard(data) {
       popupWithConfirm.setSubmitAction(() => {
         api.deleteCard(data._id)
           .then(() => {
-            card._deleteCard();
+            card.deleteCard();
             popupWithConfirm.close();
           })
           .catch((err) => {
@@ -190,7 +188,6 @@ const popupUpdateAvatar = new PopupWithForm({
     api.updateProfileAvatar({ avatar: formData.avatar })
       .then((result) => {
         userInfo.setUserInfo(result);
-        avatarImage.src = userInfo.avatarDefault;
         popupUpdateAvatar.close();
       })
       .catch((err) => {
